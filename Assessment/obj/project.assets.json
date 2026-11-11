@@ -8,19 +8,19 @@
     "net10.0": []
   },
   "packageFolders": {
-    "C:\\Users\\2424161\\.nuget\\packages\\": {}
+    "C:\\Users\\beesy\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "H:\\ThirdYear\\Concurrent\\New folder\\Assessment\\Assessment.csproj",
+      "projectUniqueName": "D:\\Coding\\ThirdYear\\ConcurrentAssessment\\Assessment\\Assessment.csproj",
       "projectName": "Assessment",
-      "projectPath": "H:\\ThirdYear\\Concurrent\\New folder\\Assessment\\Assessment.csproj",
-      "packagesPath": "C:\\Users\\2424161\\.nuget\\packages\\",
-      "outputPath": "H:\\ThirdYear\\Concurrent\\New folder\\Assessment\\obj\\",
+      "projectPath": "D:\\Coding\\ThirdYear\\ConcurrentAssessment\\Assessment\\Assessment.csproj",
+      "packagesPath": "C:\\Users\\beesy\\.nuget\\packages\\",
+      "outputPath": "D:\\Coding\\ThirdYear\\ConcurrentAssessment\\Assessment\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\2424161\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\beesy\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
@@ -67,7 +67,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.404/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",
