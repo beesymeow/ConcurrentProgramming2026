@@ -1,12 +1,15 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Collections;
+using System.Diagnostics;
 using System.Threading.Tasks.Dataflow;
+
 
 /* test settings */
 int votingDuration = 1000; // voting duration in ms
-int numberServers = 10;
-int votesPerServerPerMS = 100;
+int numberServers = 20;
+int votesPerServerPerMS = 200;
 int numberSubstitutes = 4;
+Stopwatch stopwatch = new Stopwatch(); // Added stopwatch
 
 /* Main program sequence */
 Console.WriteLine("Starting Voting for " + (votingDuration/1000.0) + " seconds");
@@ -17,10 +20,13 @@ Thread.Sleep(10);
 theMatch.CreateServers();
 Thread.Sleep(10);
 Console.WriteLine("Match: " + theMatch);
+stopwatch.Start(); // Start stopwatch to measure actual time for voting to complete
 theMatch.StartServers();
 matchThread.Start();  // uncomment this to include substitutions
 Thread.Sleep(votingDuration);
 theMatch.CloseVoting();
+stopwatch.Stop(); // Stop stopwatch 
+Console.WriteLine("Timer stopped: " + stopwatch.ElapsedMilliseconds + " ms"); // Display time to complete voting
 
 theMatch.CheckData();
 Thread.Sleep(1000);
