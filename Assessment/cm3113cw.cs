@@ -6,7 +6,7 @@ using System.Threading.Tasks.Dataflow;
 
 /* test settings */
 int votingDuration = 1000; // voting duration in ms
-int numberServers = 20;
+int numberServers = 4;
 int votesPerServerPerMS = 200;
 int numberSubstitutes = 4;
 Stopwatch stopwatch = new Stopwatch(); // Added stopwatch
