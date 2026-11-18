@@ -207,17 +207,24 @@ public class Server
         votesMade++;
     }
 
-    public void ServerVoterConnectionTask()
+    public void ServerVoterConnectionTask() // Thread pool implemented here
     {
         while (serverRunning)
-        {
-            for(int n = 0; n <= votesPerServerPerMS; n++){
+        {        
+            Task[] taskList = new Task[votesPerServerPerMS + 1]; // array of tasks
+
+
+            for(int n = 0; n <= votesPerServerPerMS; n++)
+            {
                 VoteHandler voteHandler = new VoteHandler(this);
-                Thread t = new Thread(voteHandler.VoterTask);
-                t.Start();
+                
+                taskList[n] = Task.Run(voteHandler.VoterTask); // Assign work to task where threadpool will use it.
             } 
+
+            Task.WaitAll(taskList); // Wait for tasks to complete before continuing
+
             Thread.Sleep(1);
-            // Console.WriteLine(votesPerServerPerMS + " votes added via Server " + this);
+            // Console.WriteLine(votesPerServerPerMS + " votes added via Server " + this); (this was here before any changes)
         }
         
     } 

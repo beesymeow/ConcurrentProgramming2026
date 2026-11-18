@@ -1,0 +1,15 @@
+D:\Coding\ThirdYear\ConcurrentAssessment\Assessment\bin\Release\net10.0\Assessment.exe
+D:\Coding\ThirdYear\ConcurrentAssessment\Assessment\bin\Release\net10.0\Assessment.deps.json
+D:\Coding\ThirdYear\ConcurrentAssessment\Assessment\bin\Release\net10.0\Assessment.runtimeconfig.json
+D:\Coding\ThirdYear\ConcurrentAssessment\Assessment\bin\Release\net10.0\Assessment.dll
+D:\Coding\ThirdYear\ConcurrentAssessment\Assessment\bin\Release\net10.0\Assessment.pdb
+D:\Coding\ThirdYear\ConcurrentAssessment\Assessment\obj\Release\net10.0\Assessment.GeneratedMSBuildEditorConfig.editorconfig
+D:\Coding\ThirdYear\ConcurrentAssessment\Assessment\obj\Release\net10.0\Assessment.AssemblyInfoInputs.cache
+D:\Coding\ThirdYear\ConcurrentAssessment\Assessment\obj\Release\net10.0\Assessment.AssemblyInfo.cs
+D:\Coding\ThirdYear\ConcurrentAssessment\Assessment\obj\Release\net10.0\Assessment.csproj.CoreCompileInputs.cache
+D:\Coding\ThirdYear\ConcurrentAssessment\Assessment\obj\Release\net10.0\Assessment.sourcelink.json
+D:\Coding\ThirdYear\ConcurrentAssessment\Assessment\obj\Release\net10.0\Assessment.dll
+D:\Coding\ThirdYear\ConcurrentAssessment\Assessment\obj\Release\net10.0\refint\Assessment.dll
+D:\Coding\ThirdYear\ConcurrentAssessment\Assessment\obj\Release\net10.0\Assessment.pdb
+D:\Coding\ThirdYear\ConcurrentAssessment\Assessment\obj\Release\net10.0\Assessment.genruntimeconfig.cache
+D:\Coding\ThirdYear\ConcurrentAssessment\Assessment\obj\Release\net10.0\ref\Assessment.dll
