@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System.Collections;
+using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.Threading.Tasks.Dataflow;
 
@@ -173,7 +174,7 @@ public class Server
 {
    int serverNumber;
    int votesPerServerPerMS;
-   Queue<Vote> voteBuffer;
+   BlockingCollection<Vote> voteBuffer; // changed queue to blocking collection
    public Match match{get;}
 
    Thread connectionHandlerThread, voteProcessorThread;
@@ -188,7 +189,7 @@ public class Server
         votesPerServerPerMS = v;
         match = m;
         votesMade = 0;
-        voteBuffer = new Queue<Vote>();
+        voteBuffer = new BlockingCollection<Vote>();
         connectionHandlerThread = new Thread(ServerVoterConnectionTask);
         voteProcessorThread = new Thread(VoteProcessorTask);
     }
@@ -203,8 +204,8 @@ public class Server
    public void SubmitVote(Vote v)
     { 
         // match.ProcessVote(v);
-        voteBuffer.Enqueue(v);
-        votesMade++;
+        voteBuffer.Add(v);  // Changed enqueue to add to blockingcollection
+        Interlocked.Increment(ref votesMade); // thread safe implementation of an increment
     }
 
     public void ServerVoterConnectionTask() // Thread pool implemented here
@@ -226,17 +227,18 @@ public class Server
             Thread.Sleep(1);
             // Console.WriteLine(votesPerServerPerMS + " votes added via Server " + this); (this was here before any changes)
         }
+        voteBuffer.CompleteAdding(); //  no more votes added to buffer
         
     } 
 
     public void VoteProcessorTask()
     {
-        while (serverRunning || voteBuffer.Count > 0)
+        while (!voteBuffer.IsCompleted) // while buffer is not empty and open to new additions
         {
-            if(voteBuffer.Count > 0) {
-                Vote v = voteBuffer.Dequeue();
-                if(v != null) match.ProcessVote(v);
-            }
+            if(voteBuffer.TryTake(out Vote v))
+            {
+                match.ProcessVote(v); // TryTake returns true if able to remove an item or blocks until item is available
+            } 
         }
     }
 
